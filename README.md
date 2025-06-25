@@ -17,6 +17,7 @@ Library management system database schema using MySQL Workbench.
 
 | `create_library_schema.sql` | SQL script to create tables |
 | `library_er_diagram.png`    | ER diagram of the schema |
+| `Data Insertion and Handling Null`  | SQL script with INSERT, UPDATE, DELETE |
 | `README.md`                 | Project explanation |
 
 
@@ -32,6 +33,10 @@ Library management system database schema using MySQL Workbench.
 - Normalization
 - ER Design
 - Many-to-Many Relationships
+- Insert Partial Data (Inserted NULLs or skipped some columns)   
+- IS NULL / IS NOT NULL (Used in `WHERE` condition)               
+- Handling NULLs (Inserted NULL into `published_date`, `return_date`)
+- Safe DELETE and UPDATE (Used `WHERE` conditions to avoid errors)
 
 
 ## 👩‍💻 Tools Used
