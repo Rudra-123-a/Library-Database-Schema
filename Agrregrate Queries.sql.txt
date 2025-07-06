@@ -1,0 +1,39 @@
+--  SUM Examples
+SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department;
+SELECT job_title, SUM(bonus) FROM employees GROUP BY job_title;
+SELECT department, SUM(salary + bonus) AS total_income FROM employees GROUP BY department;
+
+--  AVG Examples
+SELECT department, ROUND(AVG(salary), 2) AS avg_salary FROM employees GROUP BY department;
+SELECT job_title, AVG(age) FROM employees GROUP BY job_title;
+SELECT department, ROUND(AVG(salary + bonus), 2) AS avg_compensation FROM employees GROUP BY department;
+
+--  COUNT Examples
+SELECT department, COUNT(*) AS total_employees FROM employees GROUP BY department;
+SELECT job_title, COUNT(*) FROM employees GROUP BY job_title;
+SELECT department, COUNT(DISTINCT job_title) FROM employees GROUP BY department;
+
+-- MIN & MAX Examples
+SELECT department, MAX(salary) AS highest_salary FROM employees GROUP BY department;
+SELECT department, MIN(age) AS youngest_employee FROM employees GROUP BY department;
+SELECT job_title, MAX(hire_date) AS latest_hire FROM employees GROUP BY job_title;
+
+--  GROUP BY Multiple Columns
+SELECT department, job_title, COUNT(*) FROM employees GROUP BY department, job_title;
+SELECT department, job_title, AVG(salary) FROM employees GROUP BY department, job_title;
+SELECT gender, department, SUM(salary) FROM employees GROUP BY gender, department;
+
+--  HAVING Clause (Filter grouped results)
+SELECT department, COUNT(*) AS emp_count FROM employees GROUP BY department HAVING COUNT(*) > 5;
+SELECT job_title, AVG(salary) FROM employees GROUP BY job_title HAVING AVG(salary) > 50000;
+SELECT department, SUM(salary) FROM employees GROUP BY department HAVING SUM(salary) > 300000;
+
+--  ROUND Function
+SELECT department, ROUND(AVG(salary), 1) AS rounded_avg_salary FROM employees GROUP BY department;
+SELECT job_title, ROUND(SUM(salary), 0) FROM employees GROUP BY job_title;
+SELECT department, ROUND(MAX(bonus), 2) FROM employees GROUP BY department;
+
+--  COUNT DISTINCT Values
+SELECT COUNT(DISTINCT department) AS unique_departments FROM employees;
+SELECT department, COUNT(DISTINCT job_title) AS unique_roles FROM employees GROUP BY department;
+SELECT COUNT(DISTINCT emp_id) FROM employees;
